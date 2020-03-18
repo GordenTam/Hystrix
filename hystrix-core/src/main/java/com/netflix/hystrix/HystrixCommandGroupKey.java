@@ -29,6 +29,7 @@ public interface HystrixCommandGroupKey extends HystrixKey {
         private Factory() {
         }
 
+        //类似Integer，维护一个map来做缓存
         // used to intern instances so we don't keep re-creating them millions of times for the same key
         private static final InternMap<String, HystrixCommandGroupDefault> intern
                 = new InternMap<String, HystrixCommandGroupDefault>(

@@ -68,6 +68,7 @@ import java.util.concurrent.atomic.AtomicReference;
         NOT_EXECUTED, COMPLETED, TIMED_OUT
     }
 
+    //
     protected enum CommandState {
         NOT_STARTED, OBSERVABLE_CHAIN_CREATED, USER_CODE_EXECUTED, UNSUBSCRIBED, TERMINAL
     }
@@ -368,6 +369,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
         //doOnCompleted handler already did all of the SUCCESS work
         //doOnError handler already did all of the FAILURE/TIMEOUT/REJECTION/BAD_REQUEST work
+
         final Action0 terminateCommandCleanup = new Action0() {
 
             @Override
