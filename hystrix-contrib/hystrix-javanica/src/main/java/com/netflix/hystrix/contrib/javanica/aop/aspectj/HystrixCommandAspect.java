@@ -93,6 +93,7 @@ public class HystrixCommandAspect {
         }
         MetaHolderFactory metaHolderFactory = META_HOLDER_FACTORY_MAP.get(HystrixPointcutType.of(method));
         MetaHolder metaHolder = metaHolderFactory.create(joinPoint);
+        //根据注解中的元数据创建一个HystrixInvokable对象
         HystrixInvokable invokable = HystrixCommandFactory.getInstance().create(metaHolder);
         ExecutionType executionType = metaHolder.isCollapserAnnotationPresent() ?
                 metaHolder.getCollapserExecutionType() : metaHolder.getExecutionType();

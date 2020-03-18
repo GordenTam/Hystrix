@@ -321,6 +321,7 @@ import java.util.concurrent.atomic.AtomicReference;
      * @throws IllegalStateException
      *             if invoked more than once
      */
+    //订阅toObservable返回的Observable对象
     public Observable<R> observe() {
         // us a ReplaySubject to buffer the eagerly subscribed-to Observable
         ReplaySubject<R> subject = ReplaySubject.create();
@@ -361,6 +362,7 @@ import java.util.concurrent.atomic.AtomicReference;
      * @throws IllegalStateException
      *             if invoked more than once
      */
+    //返回干净的未被订阅的observable
     public Observable<R> toObservable() {
         final AbstractCommand<R> _cmd = this;
 
@@ -452,6 +454,7 @@ import java.util.concurrent.atomic.AtomicReference;
             }
         };
 
+        //通过observable.defer方法返回一个observable
         return Observable.defer(new Func0<Observable<R>>() {
             @Override
             public Observable<R> call() {

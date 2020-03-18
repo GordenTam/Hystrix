@@ -156,6 +156,7 @@ public interface HystrixCircuitBreaker {
             activeSubscription.set(s);
         }
 
+        //向hystrix metrics发送请求成功失败等信息
         private Subscription subscribeToStream() {
             /*
              * This stream will recalculate the OPEN/CLOSED status on every onNext from the health stream
